@@ -1,0 +1,354 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  -webkit-user-select: none;
+  user-select: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+#game-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Message styles */
+.message {
+  text-align: center;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+  display: none;
+  font-size: 14px;
+}
+
+/* Grid styles */
+.letter-grid {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 320px;
+}
+
+.grid-row {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.grid-cell {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  margin: 0 3px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #d3d6da;
+  vertical-align: middle;
+  text-transform: uppercase;
+  background-color: white;
+  position: relative;
+}
+
+.grid-cell.empty {
+  border: 2px solid #d3d6da;
+}
+
+.grid-cell.filled {
+  border: 2px solid #878a8c;
+}
+
+.grid-cell.correct {
+  border: 2px solid #888;
+  background-color: #eeeeee;
+}
+
+.grid-cell.present {
+  border: 2px solid #888;
+  background-color: #dddddd;
+}
+
+.grid-cell.absent {
+  border: 2px solid #888;
+  background-color: #bbbbbb;
+}
+
+/* Visual indicators for Kindle black and white display */
+.correct-indicator {
+  position: absolute;
+  font-size: 10px;
+  margin-left: -18px;
+  margin-top: -10px;
+}
+
+.present-indicator {
+  position: absolute;
+  font-size: 10px;
+  margin-left: -18px;
+  margin-top: -10px;
+}
+
+.mini-indicator {
+  font-size: 7px;
+  vertical-align: top;
+  margin-left: 1px;
+}
+
+/* Keyboard styles */
+.keyboard {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.keyboard-row {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.keyboard-key {
+  display: inline-block;
+  min-width: 24px;
+  height: 40px;
+  margin: 0 2px 0 0;
+  border-radius: 3px;
+  border: 1px solid #d3d6da;
+  background-color: #d3d6da;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  vertical-align: middle;
+  padding: 0 4px;
+}
+
+.keyboard-key.wide-key {
+  min-width: 50px;
+  font-size: 11px;
+}
+
+.keyboard-key.correct {
+  background-color: #eeeeee;
+  border-color: #888;
+}
+
+.keyboard-key.present {
+  background-color: #dddddd;
+  border-color: #888;
+}
+
+.keyboard-key.absent {
+  background-color: #bbbbbb;
+  border-color: #888;
+}
+
+/* Button container */
+.button-container {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.button-container button {
+  margin: 0 3px 5px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: 1px solid #d3d6da;
+  background-color: #d3d6da;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f5f5f5;
+  margin: 10% auto;
+  padding: 15px;
+  border: 1px solid #888;
+  width: 85%;
+  max-width: 450px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Statistics styles */
+.stats-container {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.stat-box {
+  display: inline-block;
+  width: 22%;
+  margin: 0 1%;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.guess-distribution {
+  margin: 15px 0;
+}
+
+.guess-row {
+  margin: 4px 0;
+  height: 18px;
+}
+
+.guess-number {
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.guess-bar-container {
+  display: inline-block;
+  width: 85%;
+  vertical-align: middle;
+}
+
+.guess-bar {
+  background-color: #888;
+  color: #fff;
+  padding: 2px 5px;
+  text-align: right;
+  font-weight: bold;
+  height: 18px;
+  line-height: 18px;
+  box-sizing: border-box;
+  min-width: 20px;
+  font-size: 12px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 11px;
+}
+
+/* Optimize for small screens */
+@media (max-width: 500px) {
+  .grid-cell {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    margin: 0 2px;
+  }
+  
+  .keyboard-key {
+    min-width: 20px;
+    height: 34px;
+    font-size: 10px;
+    margin: 0 1px 0 0;
+  }
+  
+  .keyboard-key.wide-key {
+    min-width: 40px;
+    font-size: 9px;
+  }
+}
+
+/* Visual indicators for Kindle black and white display */
+.letter-with-indicator {
+  position: relative;
+  display: inline-block;
+}
+
+.key-with-indicator {
+  display: inline-block;
+}
+
+.correct-indicator, .present-indicator {
+  font-size: 10px;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  font-weight: bold;
+}
+
+.mini-indicator {
+  font-size: 10px;
+  vertical-align: super;
+  margin-left: 1px;
+  font-weight: bold;
+}
+
+/* Visual indicators for Kindle black and white display */
+.indicator {
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.key-indicator {
+  font-size: 8px;
+  font-weight: bold;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+/* Key explaining what the symbols mean */
+.indicator-key {
+  text-align: center;
+  margin: 5px auto;
+  font-size: 12px;
+  max-width: 320px;
+  padding: 5px;
+  border: 1px solid #d3d6da;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+.indicator-key span {
+  margin: 0 5px;
+  font-weight: bold;
+}
