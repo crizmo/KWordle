@@ -1,6 +1,6 @@
 # KWordle
 
-A Wordle clone optimized for Kindle e-readers. KWordle is a word-guessing game that works well on Kindle's black and white display.
+Wordle for Kindle e-readers.
 
 ## Overview
 
@@ -10,7 +10,14 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 - Special indicators for letter positions that work well on black & white displays
 - Keyboard input support
 - Game statistics tracking
-- Optimized for Kindle's 700x500 screen size
+
+## Installation
+
+1. Download this repository
+2. Connect your Kindle to your computer
+3. Copy the entire `kwordle` folder and `kwordle.sh` to your Kindle
+4. Disconnect your Kindle.
+5. Open the `KWordle` folder on your Kindle to start the game.
 
 ## How to Play
 
@@ -23,14 +30,6 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 4. Use the on-screen keyboard or your Kindle's keyboard to enter guesses
 5. Press "Enter" to submit a guess
 6. Try to guess the word in as few attempts as possible!
-
-## Installation
-
-1. Download this repository
-2. Connect your Kindle to your computer
-3. Copy the entire `kwordle` folder and `kwordle.sh` to your Kindle
-4. Disconnect your Kindle.
-5. Open the `KWordle` folder on your Kindle to start the game.
 
 ## Technical Details
 
