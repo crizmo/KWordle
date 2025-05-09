@@ -283,31 +283,6 @@ h1 {
   margin: 10px 0;
   font-size: 11px;
 }
-
-/* Optimize for small screens */
-@media (max-width: 500px) {
-  .grid-cell {
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    font-size: 20px;
-    margin: 0 2px;
-  }
-  
-  .keyboard-key {
-    min-width: 28px;
-    height: 40px;
-    font-size: 14px;
-    margin: 0 2px 2px 0;
-  }
-  
-  .keyboard-key.wide-key {
-    min-width: 50px;
-    font-size: 12px;
-  }
-}
-
-/* Visual indicators for Kindle black and white display */
 .letter-with-indicator {
   position: relative;
   display: inline-block;
@@ -332,7 +307,6 @@ h1 {
   font-weight: bold;
 }
 
-/* Visual indicators for Kindle black and white display */
 .indicator {
   font-size: 10px;
   font-weight: bold;
@@ -348,7 +322,6 @@ h1 {
   margin-left: 1px;
 }
 
-/* Key explaining what the symbols mean */
 .indicator-key {
   text-align: center;
   margin: 5px auto;
@@ -363,4 +336,299 @@ h1 {
 .indicator-key span {
   margin: 0 5px;
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  .grid-cell {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    margin: 0 2px;
+  }
+  
+  .keyboard-key {
+    min-width: 28px;
+    height: 40px;
+    font-size: 14px;
+    margin: 0 2px 2px 0;
+  }
+  
+  .keyboard-key.wide-key {
+    min-width: 50px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+  
+  .letter-grid {
+    max-width: 380px;
+  }
+  
+  .grid-cell {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 28px;
+    margin: 0 4px;
+  }
+  
+  .keyboard {
+    max-width: 600px;
+    margin: 25px auto;
+  }
+  
+  .keyboard-key {
+    min-width: 40px;
+    height: 55px;
+    font-size: 18px;
+    margin: 0 4px 4px 0;
+  }
+  
+  .keyboard-key.wide-key {
+    min-width: 80px;
+    font-size: 16px;
+  }
+  
+  .indicator-key {
+    max-width: 380px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  .button-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 0 6px 8px;
+  }
+  
+  .modal-content {
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+  }
+  
+  .guess-row {
+    height: 22px;
+  }
+  
+  .guess-number {
+    font-size: 16px;
+  }
+  
+  .guess-bar {
+    height: 22px;
+    line-height: 22px;
+    font-size: 14px;
+  }
+  
+  .message {
+    max-width: 400px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .footer {
+    font-size: 13px;
+    margin: 20px 0;
+  }
+}
+
+/* Kindle Paperwhite (1072x1448) optimization */
+@media (min-width: 1000px) {
+  body {
+    max-width: 1050px;
+    font-size: 22px;
+    padding-top: 25px;
+  }
+  
+  h1 {
+    font-size: 46px;
+    margin: 30px 0;
+  }
+  
+  #game-container {
+    padding-top: 15px;
+  }
+  
+  .letter-grid {
+    max-width: 580px;
+    margin: 30px auto;
+  }
+  
+  .grid-row {
+    margin-bottom: 10px;
+  }
+  
+  .grid-cell {
+    width: 80px;
+    height: 80px; 
+    line-height: 80px; 
+    font-size: 42px;
+    margin: 0 6px;
+    border-width: 4px;
+  }
+  
+  .keyboard {
+    max-width: 900px;
+    margin: 40px auto;  
+  }
+  
+  .keyboard-row {
+    margin-bottom: 15px; 
+  }
+  
+  .keyboard-key {
+    min-width: 70px;
+    height: 75px;  
+    font-size: 28px;
+    margin: 0 6px 6px 0; 
+    border-radius: 8px;
+    border-width: 2px;
+  }
+  
+  .keyboard-key.wide-key {
+    min-width: 140px;
+    font-size: 24px;
+  }
+  
+  .button-container {
+    margin: 30px auto;
+  }
+  
+  .button-container button {
+    padding: 14px 30px;
+    font-size: 24px;
+    margin: 0 15px 12px;
+    border-radius: 8px;
+  }
+  
+  .indicator-key {
+    max-width: 650px;
+    font-size: 22px;
+    padding: 14px;
+    margin: 20px auto; 
+  }
+  
+  .message {
+    max-width: 600px;
+    font-size: 24px;
+    padding: 18px;
+    top: 25px;
+  }
+  
+  .modal-content {
+    max-width: 800px;
+    padding: 35px; 
+    margin: 5% auto;
+  }
+  
+  .close {
+    font-size: 40px;
+    top: 15px;
+    right: 25px;
+  }
+  
+  .stat-box {
+    width: 22%;
+    margin: 0 1%;
+  }
+  
+  .stat-number {
+    font-size: 40px; 
+  }
+  
+  .stat-label {
+    font-size: 18px; 
+  }
+  
+  .guess-distribution {
+    margin: 30px 0;  
+  }
+  
+  .guess-row {
+    height: 35px; 
+    margin: 10px 0;  
+  }
+  
+  .guess-number {
+    font-size: 22px; 
+  }
+  
+  .guess-bar {
+    height: 35px;
+    line-height: 35px; 
+    font-size: 20px; 
+  }
+  
+  .mini-indicator {
+    font-size: 16px;  
+  }
+  
+  .correct-indicator,
+  .present-indicator {
+    font-size: 18px; 
+    margin-left: -26px;
+    margin-top: -16px;
+  }
+  
+  .footer {
+    font-size: 18px; 
+    margin: 30px 0; 
+    padding-bottom: 20px; 
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  body {
+    max-width: 1200px;
+  }
+  
+  .letter-grid {
+    max-width: 550px;
+  }
+  
+  .grid-cell {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 40px;
+  }
+  
+  .keyboard {
+    max-width: 900px;
+  }
+  
+  .keyboard-key {
+    min-width: 70px;
+    height: 80px;
+    font-size: 28px;
+  }
+  
+  .keyboard-key.wide-key {
+    min-width: 140px;
+    font-size: 24px;
+  }
+  
+  .indicator-key {
+    max-width: 650px;
+    font-size: 20px;
+  }
+  
+  .modal-content {
+    max-width: 800px;
+  }
 }
