@@ -1,4 +1,3 @@
-
 // Globals
 var gameState = {
   targetWord: "",
