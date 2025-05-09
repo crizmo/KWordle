@@ -10,7 +10,6 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 - Special indicators for letter positions that work well on black & white displays
 - Keyboard input support
 - Game statistics tracking
-- Hard mode option
 - Optimized for Kindle's 700x500 screen size
 
 ## How to Play

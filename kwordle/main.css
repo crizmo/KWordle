@@ -16,6 +16,7 @@ h1 {
 }
 
 #game-container {
+  padding-top: 10px;
   width: 100%;
   margin: 0 auto;
   padding: 0 10px;
@@ -24,13 +25,23 @@ h1 {
 
 /* Message styles */
 .message {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 5px;
   text-align: center;
   font-weight: bold;
-  margin: 5px 0;
-  padding: 5px;
+  margin: 0 auto;
+  padding: 8px;
   border-radius: 5px;
   display: none;
   font-size: 14px;
+  width: 80%;
+  max-width: 300px;
+  background-color: #f5f5f5;
+  border: 1px solid #d3d6da;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Grid styles */
@@ -72,7 +83,7 @@ h1 {
 
 .grid-cell.correct {
   border: 2px solid #888;
-  background-color: #eeeeee;
+  background-color: #777777;
 }
 
 .grid-cell.present {
@@ -82,7 +93,7 @@ h1 {
 
 .grid-cell.absent {
   border: 2px solid #888;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
 }
 
 /* Visual indicators for Kindle black and white display */
@@ -108,50 +119,51 @@ h1 {
 
 /* Keyboard styles */
 .keyboard {
-  margin: 10px auto;
+  margin: 15px auto;
   width: 100%;
   max-width: 500px;
   text-align: center;
 }
 
 .keyboard-row {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-align: center;
 }
 
 .keyboard-key {
   display: inline-block;
-  min-width: 24px;
-  height: 40px;
-  margin: 0 2px 0 0;
-  border-radius: 3px;
+  min-width: 30px;
+  height: 45px;
+  margin: 0 3px 3px 0;
+  border-radius: 4px;
   border: 1px solid #d3d6da;
   background-color: #d3d6da;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
   vertical-align: middle;
-  padding: 0 4px;
+  padding: 0 5px;
 }
 
 .keyboard-key.wide-key {
-  min-width: 50px;
-  font-size: 11px;
+  min-width: 60px;
+  font-size: 14px;
 }
 
+
 .keyboard-key.correct {
-  background-color: #eeeeee;
+  background-color: #777777;
   border-color: #888;
 }
 
 .keyboard-key.present {
-  background-color: #dddddd;
+  background-color: #aaaaaa;
   border-color: #888;
 }
 
 .keyboard-key.absent {
-  background-color: #bbbbbb;
+  background-color: #ffffff;
   border-color: #888;
 }
 
@@ -283,15 +295,15 @@ h1 {
   }
   
   .keyboard-key {
-    min-width: 20px;
-    height: 34px;
-    font-size: 10px;
-    margin: 0 1px 0 0;
+    min-width: 28px;
+    height: 40px;
+    font-size: 14px;
+    margin: 0 2px 2px 0;
   }
   
   .keyboard-key.wide-key {
-    min-width: 40px;
-    font-size: 9px;
+    min-width: 50px;
+    font-size: 12px;
   }
 }
 

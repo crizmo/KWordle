@@ -12,9 +12,6 @@ var gameState = {
   message: ""
 };
 
-// No need to redeclare wordList here, it's declared in words.js
-var hardMode = false;
-
 // The logging function
 function log(logStuff) {
   var logElement = document.getElementById("log");
@@ -109,19 +106,22 @@ function handleKeyInput(key) {
   key = key.toUpperCase();
   
   if (key === "BACKSPACE" || key === "←") {
+    // Clear any existing message when backspace is pressed
+    gameState.message = "";
     // Delete the last letter in the current row
     deleteLetter();
   } else if (key === "ENTER") {
     // Submit the current guess
     submitGuess();
   } else if (/^[A-Z]$/.test(key)) {
+    // Clear any existing message when a new letter is added
+    gameState.message = "";
     // Add letter to the current row
     addLetter(key);
   }
   
   updateUI();
 }
-
 // Add a letter to the current attempt
 function addLetter(letter) {
   var currentRow = gameState.letterGrid[gameState.currentAttempt];
@@ -412,22 +412,6 @@ function updateMessage() {
   if (messageElement && gameState.message) {
     messageElement.textContent = gameState.message;
     messageElement.style.display = "block";
-  }
-}
-
-// Toggle hard mode
-function toggleHardMode() {
-  hardMode = !hardMode;
-  var hardModeButton = document.getElementById("hard-mode-button");
-  if (hardModeButton) {
-    hardModeButton.textContent = hardMode ? "Hard Mode: ON" : "Hard Mode: OFF";
-  }
-  
-  // Can only toggle before game starts
-  if (gameState.currentAttempt > 0) {
-    hardMode = false;
-    showMessage("Can only change mode before game starts");
-    hardModeButton.textContent = "Hard Mode: OFF";
   }
 }
 
