@@ -1,6 +1,8 @@
 # KWordle
 
-Wordle for Kindle e-readers.
+Wordle for Kindle e-readers.<br />
+![image](https://github.com/user-attachments/assets/1f4ce7a5-ee97-46e4-86ff-b93fd0801f59)
+
 
 ## Overview
 
