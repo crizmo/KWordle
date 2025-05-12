@@ -66,6 +66,9 @@ function initGame() {
   
   // Add indicator key
   updateIndicatorKey();
+
+  showMessage("Target word selected: " + gameState.targetWord);
+
 }
 
 // Add a key explaining what the symbols mean
@@ -93,7 +96,7 @@ function selectRandomWord() {
   }
   
   var randomIndex = Math.floor(Math.random() * window.wordList.length);
-  gameState.targetWord = window.wordList[randomIndex].toUpperCase();
+  gameState.targetWord = window.wordList[randomIndex];
   log("Target word selected: " + gameState.targetWord);
 }
 
@@ -164,12 +167,11 @@ function getCurrentGuess() {
   for (var i = 0; i < currentRow.length; i++) {
     guess += currentRow[i].letter;
   }
-  return guess;
+  return guess.toLowerCase();
 }
 
 // Check if the word is in the word list
 function isValidWord(word) {
-  word = word.toUpperCase();
   if (!window.wordList) {
     log("Error: wordList is not defined");
     return false;
