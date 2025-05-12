@@ -8,6 +8,7 @@ var gameState = {
   letterGrid: [],
   letterKeyboard: {},
   wordLength: 5,
+  language: 0, // 0: English, 1: French, 2: German
   message: ""
 };
 
@@ -499,9 +500,36 @@ function closeStatistics() {
   }
 }
 
+function showCredits() {
+  var creditsModal = document.getElementById("credits-modal");
+  var creditsContent = document.getElementById("credits-content");
+  if (creditsModal && creditsContent) {
+    creditsContent.innerHTML = "<h2>KWordle</h2>" +
+      "<p>Game by <b>kurizu</b> (https://kurizu.vercel.app/)<br/>" +
+      "Illusion engine by <b>Penguins184</b><br/>"+
+      "Additional development by <b>kbarni</b><br/>"+
+      "Word lists by:<br/>  - English: Sean Patlan<br/>  - French: Simon Cambier<br/>  -German: Katherine Oelsner</p>";
+    creditsModal.style.display = "block";
+  }
+}
+function closeCredits() {
+  var creditsModal = document.getElementById("credits-modal");
+  if (creditsModal) {
+    creditsModal.style.display = "none";
+  }
+}
+
 // Reset game (start a new game)
 function resetGame() {
   initGame();
+}
+
+function changeLanguage() {
+  var languageButton = document.getElementById("lang");
+  if (languageButton) {
+    gameState.language = (gameState.language + 1) % 3;
+    languageButton.textContent = ["English", "French", "German"][gameState.language];
+  }
 }
 
 // Initialize the game when the page loads
