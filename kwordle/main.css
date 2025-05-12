@@ -351,12 +351,12 @@ h1 {
     min-width: 28px;
     height: 40px;
     font-size: 14px;
-    margin: 0 2px 2px 0;
+    margin: 0 4px 4px 0;
   }
   
   .keyboard-key.wide-key {
-    min-width: 50px;
-    font-size: 12px;
+    min-width: 45px;
+    font-size: 16px;
   }
 }
 
@@ -387,11 +387,11 @@ h1 {
     min-width: 40px;
     height: 55px;
     font-size: 18px;
-    margin: 0 4px 4px 0;
+    margin: 0 8px 8px 0;
   }
   
   .keyboard-key.wide-key {
-    min-width: 80px;
+    min-width: 70px;
     font-size: 16px;
   }
   
@@ -482,7 +482,7 @@ h1 {
   }
   
   .keyboard {
-    max-width: 900px;
+    max-width: 950px;
     margin: 40px auto;  
   }
   
@@ -494,14 +494,14 @@ h1 {
     min-width: 70px;
     height: 75px;  
     font-size: 28px;
-    margin: 0 6px 6px 0; 
+    margin: 0 16px 16px 0; 
     border-radius: 8px;
     border-width: 2px;
   }
   
   .keyboard-key.wide-key {
-    min-width: 140px;
-    font-size: 24px;
+    min-width: 105px;
+    font-size: 32px;
   }
   
   .button-container {
@@ -609,7 +609,7 @@ h1 {
   }
   
   .keyboard {
-    max-width: 900px;
+    max-width: 950px;
   }
   
   .keyboard-key {
@@ -620,7 +620,7 @@ h1 {
   
   .keyboard-key.wide-key {
     min-width: 140px;
-    font-size: 24px;
+    font-size: 32px;
   }
   
   .indicator-key {

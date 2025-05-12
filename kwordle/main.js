@@ -355,7 +355,7 @@ function updateKeyboard() {
   
   var enterKey = document.createElement("button");
   enterKey.className = "keyboard-key wide-key";
-  enterKey.textContent = "Enter";
+  enterKey.textContent = "✓";
   enterKey.onclick = function() { handleKeyInput("ENTER"); };
   keyboardRow3.appendChild(enterKey);
   
