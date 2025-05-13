@@ -83,7 +83,7 @@ function initGame() {
   // Add indicator key
   updateIndicatorKey();
 
-  showMessage("Target word selected: " + gameState.targetWord);
+//  showMessage("Target word selected: " + gameState.targetWord);
 
 }
 
