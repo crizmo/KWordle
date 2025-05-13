@@ -523,9 +523,9 @@ function showCredits() {
   var creditsContent = document.getElementById("credits-content");
   if (creditsModal && creditsContent) {
     creditsContent.innerHTML = "<h2><font size=\"4\">KWordle</font></h2>" +
-      "<p><font size=\"3\">Game by <b><a href=\"https://kurizu.vercel.app/\">kurizu</a></b><br/>" +
+      "<p><font size=\"2\">Game by <b><a href=\"https://kurizu.vercel.app/\">kurizu</a></b><br/>" +
       "Illusion engine by <b><a href=\"https://github.com/polish-penguin-dev/\">Penguins184</a></b><br/>"+
-      "Additional development by <b><a href=\"https://github.com/kbarni\">kbarni</a></b><br/>"+
+      "Additional development by <b><a href=\"https://github.com/kbarni\">kbarni</a></b><br/><br/>"+
       "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;-German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a></font></p>";
     creditsModal.style.display = "block";
   }
