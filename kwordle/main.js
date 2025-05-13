@@ -12,6 +12,18 @@ var gameState = {
   message: ""
 };
 
+const languageList = ["English", "French", "German"];
+
+const states={
+  empty: 0,
+  filled: 1,
+  correct: 2,
+  present: 3,
+  absent: 4,
+  unused: 5
+};
+const stateStyles = ["empty", "filled", "correct", "present", "absent", "unused"];
+
 // The logging function
 function log(logStuff) {
   var logElement = document.getElementById("log");
@@ -26,11 +38,15 @@ function initGame() {
   log("Initializing KWordle game...");
   
   // Check if wordList is loaded
-  if (!window.wordList || window.wordList.length === 0) {
-    log("Warning: Word list not loaded! Length: " + (window.wordList ? window.wordList.length : "undefined"));
+  if (!wordList || wordList.length === 0) {
+    log("Warning: Word list not loaded! Length: " + (wordList ? wordList.length : "undefined"));
   } else {
-    log("Word list loaded successfully with " + window.wordList.length + " words");
-  }
+    log("Word list loaded successfully with " + wordList.length + " languages.");
+    if (wordList.length < gameState.language || wordList[gameState.language].length === 0) {
+      log("Warning: Word list for the selected language is empty!");
+    } else {
+      log("Word list for the selected contains "+wordList[gameState.language].length+" words");}
+    }
   
   // Reset game state
   gameState.currentAttempt = 0;
@@ -45,7 +61,7 @@ function initGame() {
     for (var j = 0; j < gameState.wordLength; j++) {
       row.push({
         letter: "",
-        state: "empty" // empty, filled, correct, present, absent
+        state: states.empty // empty, filled, correct, present, absent
       });
     }
     gameState.letterGrid.push(row);
@@ -55,7 +71,7 @@ function initGame() {
   gameState.letterKeyboard = {};
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   for (var i = 0; i < letters.length; i++) {
-    gameState.letterKeyboard[letters[i]] = "unused"; // unused, present, correct, absent
+    gameState.letterKeyboard[letters[i]] = states.unused; // unused, present, correct, absent
   }
   
   // Select a random word
@@ -90,13 +106,13 @@ function updateIndicatorKey() {
 
 // Select a random word from the word list
 function selectRandomWord() {
-  if (!window.wordList || window.wordList.length === 0) {
+  if (!wordList[gameState.language] || wordList[gameState.language].length === 0) {
     log("Error: Word list is empty!");
     return;
   }
   
-  var randomIndex = Math.floor(Math.random() * window.wordList.length);
-  gameState.targetWord = window.wordList[randomIndex];
+  var randomIndex = Math.floor(Math.random() * wordList[gameState.language].length);
+  gameState.targetWord = wordList[gameState.language][randomIndex];
   log("Target word selected: " + gameState.targetWord);
 }
 
@@ -131,7 +147,7 @@ function addLetter(letter) {
   for (var i = 0; i < currentRow.length; i++) {
     if (currentRow[i].letter === "") {
       currentRow[i].letter = letter;
-      currentRow[i].state = "filled";
+      currentRow[i].state = states.filled;
       break;
     }
   }
@@ -143,7 +159,7 @@ function deleteLetter() {
   for (var i = currentRow.length - 1; i >= 0; i--) {
     if (currentRow[i].letter !== "") {
       currentRow[i].letter = "";
-      currentRow[i].state = "empty";
+      currentRow[i].state = states.empty;
       break;
     }
   }
@@ -172,18 +188,18 @@ function getCurrentGuess() {
 
 // Check if the word is in the word list
 function isValidWord(word) {
-  if (!window.wordList) {
-    log("Error: wordList is not defined");
+  if (!accepted) {
+    log("Error: accepted list missing!");
     return false;
   }
   
-  for (var i = 0; i < window.wordList.length; i++) {
-    if (window.wordList[i] === word) {
+  for (var i = 0; i < accepted[gameState.language].length; i++) {
+    if (accepted[gameState.language][i] === word) {
       return true;
     }
   }
   
-  log("Word not found in list: " + word);
+  log("Word not found in accepted list: " + word);
   return false;
 }
 
@@ -229,27 +245,27 @@ function checkGuess(guess) {
   // First pass: mark correct letters
   for (var i = 0; i < guessLetters.length; i++) {
     if (guessLetters[i] === targetLetters[i]) {
-      currentRow[i].state = "correct";
-      gameState.letterKeyboard[guessLetters[i]] = "correct";
+      currentRow[i].state = states.correct;
+      gameState.letterKeyboard[guessLetters[i].toUpperCase()] = states.correct;
       targetLetters[i] = null; // Mark as used
     }
   }
   
   // Second pass: mark present letters
   for (var i = 0; i < guessLetters.length; i++) {
-    if (currentRow[i].state !== "correct") {
+    if (currentRow[i].state !== states.correct) {
       var letterIndex = targetLetters.indexOf(guessLetters[i]);
       if (letterIndex !== -1) {
-        currentRow[i].state = "present";
-        if (gameState.letterKeyboard[guessLetters[i]] !== "correct") {
-          gameState.letterKeyboard[guessLetters[i]] = "present";
+        currentRow[i].state = states.present;
+        if (gameState.letterKeyboard[guessLetters[i].toUpperCase()] !== states.correct) {
+          gameState.letterKeyboard[guessLetters[i].toUpperCase()] = states.present;
         }
         targetLetters[letterIndex] = null; // Mark as used
       } else {
-        currentRow[i].state = "absent";
-        if (gameState.letterKeyboard[guessLetters[i]] !== "correct" && 
-            gameState.letterKeyboard[guessLetters[i]] !== "present") {
-          gameState.letterKeyboard[guessLetters[i]] = "absent";
+        currentRow[i].state = states.absent;
+        if (gameState.letterKeyboard[guessLetters[i].toUpperCase()] !== states.correct && 
+            gameState.letterKeyboard[guessLetters[i].toUpperCase()] !== states.present) {
+          gameState.letterKeyboard[guessLetters[i].toUpperCase()] = states.absent;
         }
       }
     }
@@ -292,13 +308,13 @@ function updateGrid() {
     for (var j = 0; j < gameState.letterGrid[i].length; j++) {
       var cell = gameState.letterGrid[i][j];
       var cellDiv = document.createElement("div");
-      cellDiv.className = "grid-cell " + cell.state;
+      cellDiv.className = "grid-cell " + stateStyles[cell.state];
       
       // Improved indicators for Kindle's black and white display
-      if (cell.state === "correct") {
+      if (cell.state === states.correct) {
         // Right place - filled square
         cellDiv.innerHTML = cell.letter + "<span class='indicator correct-indicator'>■</span>";
-      } else if (cell.state === "present") {
+      } else if (cell.state === states.present) {
         // Wrong place - empty square
         cellDiv.innerHTML = cell.letter + "<span class='indicator present-indicator'>□</span>";
       } else {
@@ -315,14 +331,14 @@ function updateGrid() {
 // Create a keyboard key button
 function createKeyButton(letter) {
   var keyButton = document.createElement("button");
-  keyButton.className = "keyboard-key " + gameState.letterKeyboard[letter];
+  keyButton.className = "keyboard-key " + stateStyles[gameState.letterKeyboard[letter]];
   
   // Improved indicators for Kindle's black and white display
-  if (gameState.letterKeyboard[letter] === "correct") {
+  if (gameState.letterKeyboard[letter] === states.correct) {
     keyButton.innerHTML = letter + "<span class='key-indicator correct-indicator'>■</span>";
-  } else if (gameState.letterKeyboard[letter] === "present") {
+  } else if (gameState.letterKeyboard[letter] === states.present) {
     keyButton.innerHTML = letter + "<span class='key-indicator present-indicator'>□</span>";
-  } else if (gameState.letterKeyboard[letter] === "absent") {
+  } else if (gameState.letterKeyboard[letter] === states.absent) {
     keyButton.innerHTML = letter + "<span class='key-indicator absent-indicator'>×</span>";
   } else {
     keyButton.textContent = letter;
@@ -391,14 +407,14 @@ function createKeyboardRow(letters) {
 // Create a keyboard key button
 function createKeyButton(letter) {
   var keyButton = document.createElement("button");
-  keyButton.className = "keyboard-key " + gameState.letterKeyboard[letter];
+  keyButton.className = "keyboard-key " + stateStyles[gameState.letterKeyboard[letter]];
   
   // Improved indicators for Kindle's black and white display
-  if (gameState.letterKeyboard[letter] === "correct") {
+  if (gameState.letterKeyboard[letter] === states.correct) {
     keyButton.innerHTML = "<div class='key-with-indicator'>" + letter + "<span class='mini-indicator'>■</span></div>";
-  } else if (gameState.letterKeyboard[letter] === "present") {
+  } else if (gameState.letterKeyboard[letter] === states.present) {
     keyButton.innerHTML = "<div class='key-with-indicator'>" + letter + "<span class='mini-indicator'>□</span></div>";
-  } else if (gameState.letterKeyboard[letter] === "absent") {
+  } else if (gameState.letterKeyboard[letter] === states.absent) {
     keyButton.innerHTML = "<div class='key-with-indicator'>" + letter + "<span class='mini-indicator'>×</span></div>";
   } else {
     keyButton.textContent = letter;
@@ -506,11 +522,11 @@ function showCredits() {
   var creditsModal = document.getElementById("credits-modal");
   var creditsContent = document.getElementById("credits-content");
   if (creditsModal && creditsContent) {
-    creditsContent.innerHTML = "<h2>KWordle</h2>" +
-      "<p>Game by <b>kurizu</b> (https://kurizu.vercel.app/)<br/>" +
-      "Illusion engine by <b>Penguins184</b><br/>"+
-      "Additional development by <b>kbarni</b><br/>"+
-      "Word lists by:<br/>  - English: Sean Patlan<br/>  - French: Simon Cambier<br/>  -German: Katherine Oelsner</p>";
+    creditsContent.innerHTML = "<h2><font size=\"4\">KWordle</font></h2>" +
+      "<p><font size=\"3\">Game by <b><a href=\"https://kurizu.vercel.app/\">kurizu</a></b><br/>" +
+      "Illusion engine by <b><a href=\"https://github.com/polish-penguin-dev/\">Penguins184</a></b><br/>"+
+      "Additional development by <b><a href=\"https://github.com/kbarni\">kbarni</a></b><br/>"+
+      "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;-German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a></font></p>";
     creditsModal.style.display = "block";
   }
 }
@@ -529,8 +545,9 @@ function resetGame() {
 function changeLanguage() {
   var languageButton = document.getElementById("lang");
   if (languageButton) {
-    gameState.language = (gameState.language + 1) % 3;
-    languageButton.textContent = ["English", "French", "German"][gameState.language];
+    gameState.language = (gameState.language + 1) % languageList.length;
+    languageButton.textContent = languageList[gameState.language];
+    initGame();
   }
 }
 
