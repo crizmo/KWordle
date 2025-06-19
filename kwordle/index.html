@@ -1,41 +1,94 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta charset="utf-8">
   <script src="js/polyfill.min.js"></script>
   <script src="js/words.js"></script>
   <script src="main.js"></script>
   <link href="main.css" rel="stylesheet">
   <title>KWordle</title>
+  <script>
+    function update() {
+      var chromebar = {
+        "appId": "xyz.kurizu.kwordle",
+        "topNavBar": {
+          "template": "title",
+          "title": "KWordle",
+          "buttons": [
+            {
+              "id": "KPP_MORE",
+              "state": "enabled",
+              "handling": "system"
+            },
+            {
+              "id": "KPP_CLOSE",
+              "state": "enabled",
+              "handling": "system"
+            }
+          ],
+        },
+        "systemMenu": {
+          "clientParams": {
+            "profile": {
+              "name": "default",
+              "items": [
+                {
+                  "id": "KWORDLE_RELOAD",
+                  "state": "enabled",
+                  "handling": "notifyApp",
+                  "label": "Reload",
+                  "position": 0
+                }
+              ],
+              "selectionMode": "none",
+              "closeOnUse": true
+            }
+          }
+        }
+      };
+      window.kindle.messaging.sendMessage("com.lab126.chromebar", "configureChrome", chromebar);
+    };
+
+    window.kindle.appmgr.ongo = function (ctx) {
+      update();
+      window.kindle.messaging.receiveMessage("systemMenuItemSelected", function (type, id) {
+        switch (id) {
+          case "KWORDLE_RELOAD":
+            window.location.reload();
+        };
+      });
+    };
+  </script>
 </head>
+
 <body onload="onPageLoad()">
   <div id="log" style="display:none;"></div>
 
-  <h1><img src="wordle-icon.png" width="30%"/></h1>
-  
+  <h1><img src="wordle-icon.png" width="30%" /></h1>
+
   <div id="game-container">
     <div id="message" class="message"></div>
-    
+
     <div id="letter-grid" class="letter-grid">
       <!-- Grid will be populated by JavaScript -->
     </div>
-    
+
     <!-- The indicator key will be inserted here by JavaScript -->
-    
+
     <div id="keyboard" class="keyboard">
       <!-- Keyboard will be populated by JavaScript -->
     </div>
-    
+
     <div class="button-container">
       <button id="reset-button" onclick="resetGame()">New Game</button>
       <button id="lang" onclick="changeLanguage()">English</button>
       <button id="stats-button" onclick="showStatistics()">Stats</button>
       <button id="credits-button" onclick="showCredits()">Credits</button>
-      <button id="update" onclick="window.location.reload();">Update</button>
     </div>
   </div>
-  
+
   <div id="stats-modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeStatistics()">&times;</span>
@@ -56,4 +109,5 @@
     <p>KWordle v1.2.0 - Wordle for Kindle</p>
   </div>
 </body>
+
 </html>
