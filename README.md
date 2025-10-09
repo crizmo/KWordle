@@ -20,7 +20,7 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 
 ## How to Install
 
-1. Download the latest release from the [GitHub repository](https://github.com/kurizu/KWordle/releases).
+1. Download the latest release from the [GitHub repository](https://github.com/crizmo/KWordle/releases).
 2. If you are on a legacy model ( 5.6.1.1 or older), download the `kwordle-legacy.zip` file. For newer models, download the `kwordle.zip` file.
 3. Unzip the downloaded file.
 4. Connect your Kindle to your computer using a USB cable.
