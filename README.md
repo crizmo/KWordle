@@ -14,11 +14,21 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 
 - 5-letter word guessing gameplay
 - Special indicators for letter positions that work well on black & white displays
-- Multiple languages (English, French and German)
+- Multiple languages (English, French, German, Spanish)
 - Keyboard input support
 - Game statistics tracking
 
-## Installation
+## How to Install
+
+1. Download the latest release from the [GitHub repository](https://github.com/kurizu/KWordle/releases).
+2. If you are on a legacy model ( 5.6.1.1 or older), download the `kwordle-legacy.zip` file. For newer models, download the `kwordle.zip` file.
+3. Unzip the downloaded file.
+4. Connect your Kindle to your computer using a USB cable.
+5. Copy the entire `kwordle` folder and `kwordle.sh` file to the **Documents** folder of your Kindle.
+6. Safely eject your Kindle from your computer.
+7. On your Kindle, open the **KWordle** booklet to start playing.
+
+## Setup & Installation
 
 1. Download this repository
 2. Connect your Kindle to your computer
@@ -64,3 +74,13 @@ Then add the language at the end of the `languageList` variable (`main.js` line 
 Don't forget to add the credits to the creators of the word list in the `showCredits()` function!
 
 Check Github for word lists on different languages, like [Hugo0's Wordle repo](https://github.com/Hugo0/wordle)
+
+## Credits
+- Game by [kurizu](https://kurizu.vercel.app/)
+- Illusion engine by [Penguins184](https://github.com/polish-penguin-dev/)
+- Additional development by [kbarni](https://github.com/kbarni)
+- Word lists by:
+  - English: [Sean Patlan](https://github.com/seanpatlan/wordle-words)
+  - French: [Simon Cambier](https://github.com/scambier/mo-mo-motus)
+  - German: [Katherine Oelsner](https://github.com/octokatherine/word-master)
+  - Spanish: [jeheda](https://github.com/jeheda)
