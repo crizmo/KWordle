@@ -84,3 +84,4 @@ Check Github for word lists on different languages, like [Hugo0's Wordle repo](h
   - French: [Simon Cambier](https://github.com/scambier/mo-mo-motus)
   - German: [Katherine Oelsner](https://github.com/octokatherine/word-master)
   - Spanish: [jeheda](https://github.com/jeheda)
+  - Portuguese: [Victor Santos](https://github.com/tilnoene)
