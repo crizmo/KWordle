@@ -12,7 +12,7 @@ var gameState = {
   message: ""
 };
 
-const languageList = ["English", "French", "German", "Spanish"];
+const languageList = ["English", "French", "German", "Spanish", "Portuguese"];
 
 const states={
   empty: 0,
@@ -526,7 +526,7 @@ function showCredits() {
       "<p><font size=\"2\">Game by <b><a href=\"https://kurizu.vercel.app/\">kurizu</a></b><br/>" +
       "Illusion engine by <b><a href=\"https://github.com/polish-penguin-dev/\">Penguins184</a></b><br/>"+
       "Additional development by <b><a href=\"https://github.com/kbarni\">kbarni</a></b><br/><br/>"+
-      "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;- German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a><br/>&nbsp;&nbsp;- Spanish: <a href=\"https://github.com/jeheda\">jeheda</a></font></p>";
+      "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;- German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a><br/>&nbsp;&nbsp;- Spanish: <a href=\"https://github.com/jeheda\">jeheda</a><br/>&nbsp;&nbsp;- Portuguese: <a href=\"https://github.com/tilnoene\">Victor Santos</a></font></p>";
     creditsModal.style.display = "block";
   }
 }
