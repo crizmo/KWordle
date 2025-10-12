@@ -14,7 +14,7 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 
 - 5-letter word guessing gameplay
 - Special indicators for letter positions that work well on black & white displays
-- Multiple languages (English, French, German, Spanish)
+- Multiple languages (English, French, German, Spanish, Portuguese)
 - Keyboard input support
 - Game statistics tracking
 
