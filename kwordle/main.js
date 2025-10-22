@@ -12,7 +12,7 @@ var gameState = {
   message: ""
 };
 
-const languageList = ["English", "French", "German", "Spanish", "Portuguese"];
+const languageList = ["English", "French", "German", "Spanish", "Portuguese", "Swedish"];
 
 const states={
   empty: 0,
@@ -70,6 +70,11 @@ function initGame() {
   // Initialize keyboard
   gameState.letterKeyboard = {};
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  if(gameState.language===5){ // Swedish special letters
+    letters.push("Å");
+    letters.push("Ä");
+    letters.push("Ö");
+  }
   for (var i = 0; i < letters.length; i++) {
     gameState.letterKeyboard[letters[i]] = states.unused; // unused, present, correct, absent
   }
@@ -132,7 +137,7 @@ function handleKeyInput(key) {
   } else if (key === "ENTER") {
     // Submit the current guess
     submitGuess();
-  } else if (/^[A-Z]$/.test(key)) {
+  } else if (/^[A-ZÅÄÖ]$/.test(key)) {
     // Clear any existing message when a new letter is added
     gameState.message = "";
     // Add letter to the current row
@@ -357,11 +362,18 @@ function updateKeyboard() {
   
   // Row 1: Q-P
   var row1 = "QWERTYUIOP".split("");
+  if(gameState.language===5){ // Swedish special letters
+    row1.push("Å");
+  }
   var keyboardRow1 = createKeyboardRow(row1);
   keyboardElement.appendChild(keyboardRow1);
   
   // Row 2: A-L
   var row2 = "ASDFGHJKL".split("");
+  if(gameState.language===5){
+    row2.push("Ö");
+    row2.push("Ä");
+  }
   var keyboardRow2 = createKeyboardRow(row2);
   keyboardElement.appendChild(keyboardRow2);
   
@@ -526,7 +538,7 @@ function showCredits() {
       "<p><font size=\"2\">Game by <b><a href=\"https://kurizu.vercel.app/\">kurizu</a></b><br/>" +
       "Illusion engine by <b><a href=\"https://github.com/polish-penguin-dev/\">Penguins184</a></b><br/>"+
       "Additional development by <b><a href=\"https://github.com/kbarni\">kbarni</a></b><br/><br/>"+
-      "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;- German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a><br/>&nbsp;&nbsp;- Spanish: <a href=\"https://github.com/jeheda\">jeheda</a><br/>&nbsp;&nbsp;- Portuguese: <a href=\"https://github.com/tilnoene\">Victor Santos</a></font></p>";
+      "Word lists by:<br/>&nbsp;&nbsp;- English: <a href=\"https://github.com/seanpatlan/wordle-words\">Sean Patlan</a><br/>&nbsp;&nbsp;- French: <a href=\"https://github.com/scambier/mo-mo-motus\">Simon Cambier</a><br/>&nbsp;&nbsp;- German: <a href=\"https://github.com/octokatherine/word-master\">Katherine Oelsner</a><br/>&nbsp;&nbsp;- Spanish: <a href=\"https://github.com/jeheda\">jeheda</a><br/>&nbsp;&nbsp;- Portuguese: <a href=\"https://github.com/tilnoene\">Victor Santos</a></br>&nbsp;&nbsp;- Swedish: <a href=\"https://github.com/jsprolsson\">Jesper Olsson</a></font></p>";
     creditsModal.style.display = "block";
   }
 }
@@ -557,7 +569,7 @@ function onPageLoad() {
   document.addEventListener("keydown", function(event) {
     var key = event.key.toUpperCase();
     
-    if (key === "BACKSPACE" || key === "ENTER" || /^[A-Z]$/.test(key)) {
+    if (key === "BACKSPACE" || key === "ENTER" || /^[A-ZÅÄÖ]$/.test(key)) {
       handleKeyInput(key);
       event.preventDefault();
     }
