@@ -87,3 +87,5 @@ Check Github for word lists on different languages, like [Hugo0's Wordle repo](h
   - Spanish: [jeheda](https://github.com/jeheda)
   - Portuguese: [Victor Santos](https://github.com/tilnoene)
   - Swedish [Jesper Olsson](https://github.com/jsprolsson)
+  - Italian [Napolux](https://github.com/napolux/paroleitaliane)
+  - Latin [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive)
