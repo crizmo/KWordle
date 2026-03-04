@@ -29,7 +29,7 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 6. Safely eject your Kindle from your computer.
 7. On your Kindle, open the **KWordle** booklet to start playing.
 
-## Setup & Installation
+## [Setup & Installation | Docs](https://crizmo-kwordle.mintlify.app/introduction)
 
 1. Download this repository
 2. Connect your Kindle to your computer
