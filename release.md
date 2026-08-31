@@ -17,8 +17,8 @@
   - Spanish: [jeheda](https://github.com/jeheda) (v1.3.0)
   - Portuguese: [Victor Santos](https://github.com/tilnoene) (v1.4.0)
   - Swedish: [Jesper Olsson](https://github.com/jsprolsson) (v1.5.0)
-  - Italian: [Napolux](https://github.com/napolux/paroleitaliane) (v1.6.0)
-  - Latin: [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive) (v1.6.0)
+  - Italian: [Napolux](https://github.com/napolux/paroleitaliane) (v1.5.0)
+  - Latin: [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive) (v1.5.0)
   - Polish: [Pepe-PL](https://github.com/Pepe-PL) (v1.6.0)
 
 ### UI Enhancements
