@@ -1,9 +1,11 @@
-# KWordle v1.5.0 - Wordle for Kindle
+# KWordle v1.6.0 - Wordle for Kindle
 
 **Note**: If you have an older Kindle (5.6.1.1), download the zip with `-legacy` in its name.
 
 ### Word List Improvements
-- **Swedish support**: Added Swedish word lists for expanded language options with Swedish keyboard layout.
+- **Polish support**: Added Polish word lists and language support ([Pepe-PL](https://github.com/Pepe-PL)) (v1.6.0)
+- **Italian & Latin support**: Added Italian ([Napolux](https://github.com/napolux/paroleitaliane)) and Latin ([LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive)) word lists (v1.6.0)
+- **Swedish support**: Added Swedish word lists for expanded language options with Swedish keyboard layout (v1.5.0)
 - **Legacy Support**: Support for legacy devices ( 5.6.1.1 ) which don't support chromebar and stuff.
 - **Separated word lists**: Now using separate proposed and accepted words
 - **Enhanced validation**: More comprehensive word validation for all supported languages
@@ -15,6 +17,9 @@
   - Spanish: [jeheda](https://github.com/jeheda) (v1.3.0)
   - Portuguese: [Victor Santos](https://github.com/tilnoene) (v1.4.0)
   - Swedish: [Jesper Olsson](https://github.com/jsprolsson) (v1.5.0)
+  - Italian: [Napolux](https://github.com/napolux/paroleitaliane) (v1.6.0)
+  - Latin: [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive) (v1.6.0)
+  - Polish: [Pepe-PL](https://github.com/Pepe-PL) (v1.6.0)
 
 ### UI Enhancements
 - **Credits dialog added**: New modal showing contributors and word list sources
