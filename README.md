@@ -15,7 +15,7 @@ KWordle is a version of the popular word-guessing game Wordle, specifically desi
 
 - 5-letter word guessing gameplay
 - Special indicators for letter positions that work well on black & white displays
-- Multiple languages (English, French, German, Spanish, Portuguese)
+- Multiple languages (English, French, German, Spanish, Portuguese, Swedish, Italian, Latin, Polish)
 - Keyboard input support
 - Game statistics tracking
 
@@ -86,6 +86,7 @@ Check Github for word lists on different languages, like [Hugo0's Wordle repo](h
   - German: [Katherine Oelsner](https://github.com/octokatherine/word-master)
   - Spanish: [jeheda](https://github.com/jeheda)
   - Portuguese: [Victor Santos](https://github.com/tilnoene)
-  - Swedish [Jesper Olsson](https://github.com/jsprolsson)
-  - Italian [Napolux](https://github.com/napolux/paroleitaliane)
-  - Latin [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive)
+  - Swedish: [Jesper Olsson](https://github.com/jsprolsson)
+  - Italian: [Napolux](https://github.com/napolux/paroleitaliane)
+  - Latin: [LatinWord Net](https://github.com/latinwordnet/latinwordnet-archive)
+  - Polish: [Pepe-PL](https://github.com/Pepe-PL) ([Hugo0/wordle](https://github.com/Hugo0/wordle), [SJP.pl](https://sjp.pl/), [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords))
